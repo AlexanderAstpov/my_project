@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Данные из базы данных</title>
+    <style>
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Опубликованные данные</h1>
+    <table>
+        <thead>
+            <tr>
+                <!-- Замените 'Column1', 'Column2' и т.д. на реальные имена ваших столбцов -->
+                <th>Название</th>
+                <th>Артикул</th>
+                <th>Цвет</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Цикл Jinja2 для перебора данных -->
+            {% for row in data %}
+            <tr>
+                <td>{{ row['name'] }}</td>
+                <td>{{ row['article'] }}</td>
+                <td>{{ row['color'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

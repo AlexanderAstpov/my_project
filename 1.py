@@ -14,16 +14,19 @@ try:
     sheet = book.active
 
    
-    for row in range(2, 10): # sheet.max_row + 1
+    for row in range(2, 200): # sheet.max_row + 1
+        quantity = sheet[row][31].value
         try:
-           
+            if quantity is not None and quantity == 0 or quantity == None:
+                continue
+
+            quantity = sheet[row][31].value
             product_name = sheet[row][0].value
             article = sheet[row][1].value
             color = sheet[row][2].value
             length = sheet[row][7].value 
             width = sheet[row][8].value
             height = sheet[row][9].value
-            quantity = sheet[row][31].value
             price = sheet[row][28].value
             link_1 = sheet[row][25].value
             link_2 = sheet[row][26].value
@@ -44,6 +47,7 @@ except Exception as e:
     print(f"An error occurred while reading the Excel file: {e}")
     exit()
 
+print(p)
 
 try:
    
@@ -60,7 +64,7 @@ try:
             len REAL, -- Changed to REAL to handle potential non-integer values
             width REAL,
             height REAL,
-            quantity REAL,
+            quantity INTEGER,
             price INTEGER,
             link_1 TEXT,
             link_2 TEXT,

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Данные из БД</title>
+</head>
+<body>
+    <h1>Список элементов</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item.0 }} - {{ item.1 }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
