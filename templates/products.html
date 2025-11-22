@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Каталог товаров</h1>
+    <table border="1" cellpadding=15>
+        <tr>
+            <th>Номер товара</th>
+            <th> Наименование товара</th>
+            <th> Артикл</th>
+            <th>Цвет</th>
+            <th>Длина</th>
+            <th>Ширина</th>
+            <th>Высота</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Ссылка</th>
+            <th>Ссылка</th>
+            <th>Ссылка</th>
+            <th>Ссылка</th>
+        </tr>
+
+        {% for product in products %}
+        <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.product_name}}</td>
+            <td>{{product.article}}</td>
+            <td>{{product.color}}</td>
+            <td>{{product.length}}</td>
+            <td>{{product.width}}</td>
+            <td>{{product.height}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.link_1}}</td>
+            <td>{{product.link_2}}</td>
+            <td>{{product.link_3}}</td>
+            <td>{{product.link_4}}</td>
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+{% endblock %}
