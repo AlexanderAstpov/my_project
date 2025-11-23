@@ -22,11 +22,21 @@
         {% for product in products %}
         <tr>
             <td>{{product.id}}</td>
-            <td>{{product.product_name}}</td>
-            <td>{{product.article}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.article[2:-1]}}</td>
             <td>{{product.color}}</td>
-            <td>{{product.length}}</td>
-            <td>{{product.width}}</td>
+            <td>{% if product.length%}
+                {{product.length}}
+                
+                
+                {% endif%}
+            </td>
+            <td>{% if product.width%}
+                {{product.width}}
+                
+                
+                {% endif%}
+            </td>
             <td>{{product.height}}</td>
             <td>{{product.quantity}}</td>
             <td>{{product.price}}</td>

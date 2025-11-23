@@ -26,6 +26,8 @@ def contacts(request: Request):
 
 
 
+
+
 @app.get("/products", response_class=HTMLResponse)
 def products(request: Request):
     session = Sessionlocal()
@@ -37,6 +39,20 @@ def products(request: Request):
         "products": data
     }
     return templates.TemplateResponse("products.html", context=context)
+
+
+
+@app.get("/posts", response_class=HTMLResponse)
+def posts(request: Request):
+    session = Sessionlocal()
+    data = session.query(Product).all()
+    session.close()
+    context = {
+        "request": request,
+        "title": "Заказы",
+        "posts": data
+    }
+    return templates.TemplateResponse("posts.html", context=context)
 
 
 
