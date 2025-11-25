@@ -1,44 +1,32 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Все записи
+Страница товаров
 
 {% endblock %}
 
 {% block content %}
 
-{% for post in posts %}
-<div class="product-container">
-    <!-- Секция с основным изображением и галереей -->
-    <section class="product-gallery">
-        <img src="{{post.link_2}}" alt="Описание основного изображения товара" class="main-image">
-        <div class="thumbnail-images">
-            <!-- Дополнительные изображения товара -->
-            <img src="{{post.link_3}}" alt="Изображение 1">
-            <img src="{{post.link_4}}" alt="Изображение 2">
+<main>
+    <h2>Категория: Электроника</h2>
+    
+    {% for post in posts %}
+    <div class="product-list">
+        {% for post in posts %}
+        <div class="product-card">
+            <img src="{{post.link_2}}" alt="Изображение товара 1">
+            <h3>{{post.name}}</h3>
+            <span class="price">{{post.price}} руб.</span>
+            <a href="#" class="add-to-cart">Подробнее</a>
         </div>
-    </section>
+        {% endfor %}
+        
 
-    <!-- Секция с информацией о товаре и формой заказа -->
-    <section class="product-details">
-        <h2>{{post.name}}</h2>
-        <p class="product-price">Цена: <span>{{post.price}} руб.</span></p>   
-        <h3>Описание</h3>
-        <p>
-            Подробное описание товара. Здесь можно указать ключевые характеристики, 
-            преимущества, материалы изготовления и другую важную информацию.
-        </p>
+    </div>
 
-        <h3>Характеристики</h3>
-        <ul class="product-specs">
-            <li>**Материал:** Ткань/Металл</li>
-            <li>**Размер:** S, M, L</li>
-            <li>**Цвет:** Синий</li>
-            <li>**Производитель:** Бренд</li>
-        </ul>
-    </section>
     {% endfor %}
-</div>
+</main>
+
 
 
 {% endblock %}

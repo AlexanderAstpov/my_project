@@ -26,6 +26,7 @@ try:
             quantity = sheet[row][31].value
             product_name = sheet[row][0].value
             article = sheet[row][1].value
+            description = sheet[row][20].value
             color = sheet[row][2].value
             length = sheet[row][7].value 
             width = sheet[row][8].value
@@ -37,7 +38,7 @@ try:
             link_4 = sheet[row][33].value
 
            
-            data_row = [product_name, article, color, length, width, height, quantity, price, link_1, link_2, link_3, link_4]
+            data_row = [product_name, article, color, length, width, height, quantity, price, description, link_1, link_2, link_3, link_4]
             p.append(data_row)
         except Exception as e:
             print(f"Error reading row {row}: {e}")
@@ -69,6 +70,7 @@ try:
             height REAL,
             quantity INTEGER,
             price INTEGER,
+            description TEXT,       
             link_1 TEXT,
             link_2 TEXT,
             link_3 TEXT,
@@ -79,8 +81,8 @@ try:
 
     
     cursor.executemany('''
-        INSERT INTO goods (name, article, color, len, width, height, quantity, price, link_1, link_2, link_3, link_4)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO goods (name, article, color, len, width, height, quantity, price, description, link_1, link_2, link_3, link_4)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''', p)
     connection.commit()
 

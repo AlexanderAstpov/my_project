@@ -12,6 +12,26 @@ app = FastAPI(title="Мой проект")
 templates = Jinja2Templates(directory="templates")
 
 
+@app.get("/about", response_class=HTMLResponse)
+def about(request: Request):
+    context = {
+        "request": request,
+        "title": "Контакты",
+        "adress": "ул. Павловская д.26",
+        "phone": "8 (800) 555 35 35",
+        "email": "top@secret.com"
+    }
+    return templates.TemplateResponse("about.html", context=context)
+
+@app.get("/index", response_class=HTMLResponse)
+def index(request: Request):
+    context = {
+        "request": request,
+        "title": "Контакты",
+        
+    }
+    return templates.TemplateResponse("index.html", context=context)
+
 @app.get("/contacts", response_class=HTMLResponse)
 def contacts(request: Request):
     context = {
@@ -22,8 +42,6 @@ def contacts(request: Request):
         "email": "top@secret.com"
     }
     return templates.TemplateResponse("contacts.html", context=context)
-
-
 
 
 

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block title %}
+Каталог товаров
+
+{% endblock %}
+
 {% block content %}
     <h1>Каталог товаров</h1>
     <table border="1" cellpadding=15>
@@ -13,6 +18,7 @@
             <th>Высота</th>
             <th>Количество</th>
             <th>Цена</th>
+            <th>Описание товара</th>
             <th>Ссылка</th>
             <th>Ссылка</th>
             <th>Ссылка</th>
@@ -40,6 +46,7 @@
             <td>{{product.height}}</td>
             <td>{{product.quantity}}</td>
             <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
             <td>{{product.link_1}}</td>
             <td>{{product.link_2}}</td>
             <td>{{product.link_3}}</td>

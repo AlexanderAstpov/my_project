@@ -16,6 +16,7 @@ class Product(Base):
     height = Column(Integer, nullable=False)
     quantity = Column(Integer, nullable=False)
     price = Column(Integer, nullable=False)
+    description = Column(String, nullable=True)
     link_1 = Column(String, nullable=True)
     link_2 = Column(String, nullable=True)
     link_3 = Column(String, nullable=True)
