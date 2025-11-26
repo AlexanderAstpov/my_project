@@ -23,4 +23,4 @@ class Product(Base):
     link_4 = Column(String, nullable=True)
 
     
-    # count = Column(Integer, default=0)
+    

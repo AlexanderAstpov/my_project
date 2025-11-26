@@ -1,0 +1,23 @@
+{% block title %}
+Страница товаров
+
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <article>
+        <h2>{{post.name}}</h2>
+        <div class="product-image">
+            <img src="{{post.link_2}}" alt="Описание изображения товара">
+            <img src="{{post.link_3}}" alt="Описание изображения товара">
+            <img src="{{post.link_4}}" alt="Описание изображения товара">
+        </div>
+        <div class="product-info">
+            <p class="price">: <span class="price-value">{{post.price}} руб.</span></p>
+            <p class="description">Краткое описание товара...</p>
+            
+        </div>
+    </article>
+</main>
+{% endblock %} 

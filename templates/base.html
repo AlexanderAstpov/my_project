@@ -14,8 +14,12 @@
 
         /* Стили для Header */
         header {
-            background-color: #333;
-            color: white;
+            position: fixed; /* Фиксирует положение элемента относительно окна браузера */
+            top: 0;          /* Прижимает к верхней границе */
+            left: 0;
+            width: 100%;
+            background-color: #927070;
+            color: rgb(133, 230, 146);
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -40,6 +44,11 @@
 
         /* Стили для Footer */
         footer {
+
+            position: fixed; /* Фиксирует положение элемента относительно окна браузера */
+            bottom: 0; /* Прижимает к нижней границе */
+            left: 0;
+            width: 100%;
             background-color: #f4f4f4;
             text-align: center;
             padding: 15px 0;
@@ -112,7 +121,7 @@
 
     <!-- FOOTER (Подвал сайта) -->
     <footer>
-        <p>&copy; 2025 Все права защищены. Контакты: info@example.com</p>
+        <p>&copy; 2025 Все права защищены.  </p>
     </footer>
 
 </body>

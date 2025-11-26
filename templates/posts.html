@@ -8,7 +8,7 @@
 {% block content %}
 
 <main>
-    <h2>Категория: Электроника</h2>
+    <h2>Детские товары</h2>
     
     {% for post in posts %}
     <div class="product-list">
@@ -17,7 +17,7 @@
             <img src="{{post.link_2}}" alt="Изображение товара 1">
             <h3>{{post.name}}</h3>
             <span class="price">{{post.price}} руб.</span>
-            <a href="#" class="add-to-cart">Подробнее</a>
+            <a href="{{post.link_1}}" class="add-to-cart">Подробнее</a>
         </div>
         {% endfor %}
         
