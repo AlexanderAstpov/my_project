@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ product.name }} - Детали товара
+{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 80px auto 100px; padding: 20px;">
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('posts') }}" style="color: #007bff; text-decoration: none;">← Назад к каталогу</a>
+    </div>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+        <!-- Секция изображения товара -->
+        <div style="flex: 1; min-width: 300px; max-width: 500px;">
+            <div style="border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; background-color: #f9f9f9;">
+                {% if product.link_1 %}
+                <img src="{{ product.link_1 }}" alt="{{ product.name }}"
+                     style="max-width: 100%; height: auto; border-radius: 4px; margin-bottom: 15px;"
+                     onerror="this.style.display='none';">
+                {% else %}
+                <div style="height: 300px; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border-radius: 4px; margin-bottom: 15px;">
+                    <span style="color: #999;">Изображение отсутствует</span>
+                </div>
+                {% endif %}
+                
+                <!-- Дополнительные изображения -->
+                {% if product.link_2 or product.link_3 or product.link_4 %}
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    {% if product.link_2 %}
+                    <img src="{{ product.link_2 }}" alt="Доп. изображение"
+                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         onerror="this.style.display='none';">
+                    {% endif %}
+                    {% if product.link_3 %}
+                    <img src="{{ product.link_3 }}" alt="Доп. изображение"
+                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         onerror="this.style.display='none';">
+                    {% endif %}
+                    {% if product.link_4 %}
+                    <img src="{{ product.link_4 }}" alt="Доп. изображение"
+                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         onerror="this.style.display='none';">
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Секция информации о товаре -->
+        <div style="flex: 2; min-width: 300px; max-width: 700px;">
+            <h1 style="margin-top: 0; color: #333;">{{ product.name }}</h1>
+            
+            <div style="margin: 20px 0;">
+                <span style="font-size: 2em; font-weight: bold; color: #007bff;">{{ product.price }} руб.</span>
+            </div>
+
+            <div style="margin: 20px 0;">
+                <h3>Описание товара</h3>
+                <p style="line-height: 1.6; color: #555;">
+                    {% if product.description %}
+                        {{ product.description }}
+                    {% else %}
+                        Описание отсутствует
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- Таблица с деталями продукта -->
+            <div style="margin: 20px 0;">
+                <h3>Характеристики</h3>
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="background-color: #f8f9fa;">
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Параметр</th>
+                        <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Значение</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Артикул</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">{{ product.article }}</td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Цвет</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            {% if product.color %}
+                                {{ product.color }}
+                            {% else %}
+                                Не указан
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Размеры (Д×Ш×В)</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            {% if product.len and product.width and product.height %}
+                                {{ product.len }} × {{ product.width }} × {{ product.height }} мм
+                            {% else %}
+                                Не указаны
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 10px;">Количество на складе</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">
+                            {% if product.quantity > 0 %}
+                                {{ product.quantity }} шт.
+                            {% else %}
+                                Нет в наличии
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div style="margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap;">
+                <button class="add-to-cart" style="background-color: #28a745; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 1.1em;">
+                    Добавить в корзину
+                </button>
+                <button style="background-color: #007bff; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 1.1em;">
+                    Купить в 1 клик
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция похожих товаров (опционально) -->
+    <div style="margin-top: 40px;">
+        <h3>Похожие товары</h3>
+        <p style="color: #777;">Здесь могут быть отображены похожие товары</p>
+    </div>
+</div>
+{% endblock %}

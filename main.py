@@ -73,6 +73,19 @@ def posts(request: Request):
     return templates.TemplateResponse("posts.html", context=context)
 
 
+@app.get("/products/{id}", response_class=HTMLResponse)
+def product_detail(request: Request, id: int):
+    session = Sessionlocal()
+    product = session.query(Product).filter(Product.id == id).first()
+    session.close()
+    context = {
+        "request": request,
+        "title": "Product Detail",
+        "product": product
+    }
+    return templates.TemplateResponse("product_detail.html", context=context)
+
+
 
 
 if __name__ == "__main__":
