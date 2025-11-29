@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from database.db import Sessionlocal
 # from models.orders import Order
 from models.products import Product
+from parsing import get_goots_from_xlsx
 
 
 app = FastAPI(title="Мой проект")
@@ -23,7 +24,7 @@ def about(request: Request):
     }
     return templates.TemplateResponse("about.html", context=context)
 
-@app.get("/index", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse)
 def index(request: Request):
     context = {
         "request": request,
@@ -89,4 +90,5 @@ def product_detail(request: Request, id: int):
 
 
 if __name__ == "__main__":
+    get_goots_from_xlsx()
     uvicorn.run("main:app", port=8000, reload=True) 

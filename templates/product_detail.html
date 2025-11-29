@@ -29,17 +29,17 @@
                 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     {% if product.link_2 %}
                     <img src="{{ product.link_2 }}" alt="Доп. изображение"
-                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         style="max-width: 300px; height: 300px; object-fit: cover; border-radius: 4px; cursor: pointer; "
                          onerror="this.style.display='none';">
                     {% endif %}
                     {% if product.link_3 %}
                     <img src="{{ product.link_3 }}" alt="Доп. изображение"
-                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         style="max-width: 300px; height: 300px; object-fit: cover; border-radius: 4px; cursor: pointer;"
                          onerror="this.style.display='none';">
                     {% endif %}
                     {% if product.link_4 %}
                     <img src="{{ product.link_4 }}" alt="Доп. изображение"
-                         style="max-width: 80px; height: 80px; object-fit: cover; border-radius: 4px; cursor: pointer;"
+                         style="max-width: 300px; height: 300px; object-fit: cover; border-radius: 4px; cursor: pointer;"
                          onerror="this.style.display='none';">
                     {% endif %}
                 </div>
@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <td style="border: 1px solid #ddd; padding: 10px;">Артикул</td>
-                        <td style="border: 1px solid #ddd; padding: 10px;">{{ product.article }}</td>
+                        <td style="border: 1px solid #ddd; padding: 10px;">{{ product.article[2:-1] }}</td>
                     </tr>
                     <tr>
                         <td style="border: 1px solid #ddd; padding: 10px;">Цвет</td>
@@ -112,7 +112,7 @@
             </div>
 
             <!-- Кнопки действий -->
-            <div style="margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap;">
+           <!-- <div style="margin: 30px 0; display: flex; gap: 15px; flex-wrap: wrap;">
                 <button class="add-to-cart" style="background-color: #28a745; color: white; border: none; padding: 15px 25px; border-radius: 5px; cursor: pointer; font-size: 1.1em;">
                     Добавить в корзину
                 </button>
@@ -121,12 +121,12 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>-->
 
-    <!-- Секция похожих товаров (опционально) -->
+    <!-- Секция похожих товаров (опционально) 
     <div style="margin-top: 40px;">
         <h3>Похожие товары</h3>
         <p style="color: #777;">Здесь могут быть отображены похожие товары</p>
-    </div>
+    </div>-->
 </div>
 {% endblock %}
