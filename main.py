@@ -26,9 +26,13 @@ def about(request: Request):
 
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request):
+    
     context = {
         "request": request,
         "title": "Контакты",
+        "main_text": "Страница для оформления заказа",
+        "index": "https://topol-dt.ru/personal"
+
         
     }
     return templates.TemplateResponse("index.html", context=context)
