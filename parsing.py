@@ -1,3 +1,4 @@
+from database.db import Base, Sessionlocal, engine
 import openpyxl
 import sqlite3
 
@@ -5,8 +6,10 @@ import sqlite3
 excel_file = 'export.xlsx'
 db_file = 'I_seller.db'
 
+
 def get_goots_from_xlsx():
 
+    Base.metadata.drop_all(bind=engine)
 
     def reprice(start_price):
         price = start_price * 1.3

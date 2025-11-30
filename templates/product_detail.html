@@ -26,7 +26,7 @@
                 
                 <!-- Дополнительные изображения -->
                 {% if product.link_2 or product.link_3 or product.link_4 %}
-                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; ">
                     {% if product.link_2 %}
                     <img src="{{ product.link_2 }}" alt="Доп. изображение"
                          style="max-width: 300px; height: 300px; object-fit: cover; border-radius: 4px; cursor: pointer; "

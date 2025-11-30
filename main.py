@@ -3,7 +3,6 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 import uvicorn
 from fastapi.templating import Jinja2Templates
 from database.db import Sessionlocal
-# from models.orders import Order
 from models.products import Product
 from parsing import get_goots_from_xlsx
 
