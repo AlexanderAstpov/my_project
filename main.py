@@ -16,7 +16,8 @@ templates = Jinja2Templates(directory="templates")
 def about(request: Request):
     context = {
         "request": request,
-        "title": "Контакты",
+        "title": "Контакты партнёров",
+        "manager": "Ульянова Ватентина",
         "adress": "ул. Павловская д.26",
         "phone": "8 (800) 555 35 35",
         "email": "top@secret.com"
@@ -30,7 +31,11 @@ def index(request: Request):
         "request": request,
         "title": "Контакты",
         "main_text": "Страница для оформления заказа",
-        "index": "https://topol-dt.ru/personal"
+        "index": "https://topol-dt.ru/personal",
+        "manager": "Менеджер - Ульянова Ватентина",
+        "adress": "ул. Павловская д.26",
+        "phone": "8 (800) 555 35 35",
+        "email": "top@secret.com"
 
         
     }
